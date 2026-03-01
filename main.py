@@ -11,7 +11,7 @@ from modules.ordenes.routes import router as ordenes_router
 from prestashop.modules.clientes.routes import router as clientes_router
 from prestashop.modules.productos.routes import router as prestashop_productos_router
 from prestashop.modules.proveedores.routes import router as proveedores_prestashop_router
-from prestashop.modules.orden_referencia.routes import router as orden_ref_router
+from prestashop.modules.orden_por_reference.routes import router as orden_ref_router
 from prestashop.modules.pagos.routes import router as pagos_prestashop_router
 from prestashop.modules.ordenes.routes import router as prestashop_ordenes_router
 from prestashop.modules.productos_reference.routes import router as productos_ref_router
@@ -33,7 +33,6 @@ app.include_router(clientes_router, prefix="/api/prestashop/clientes", tags=["Cl
 app.include_router(prestashop_productos_router, prefix="/api/prestashop/productos", tags=["Productos"])
 app.include_router(productos_ref_router, prefix="/api/prestashop/productos-referencia", tags=["PrestaShop Productos Referencia"])
 app.include_router(proveedores_prestashop_router, prefix="/api/prestashop/proveedores", tags=["PrestaShop Proveedores"])
-app.include_router(orden_ref_router, prefix="/api/prestashop/orden-referencia", tags=["Ordenes Prestashop"])
+app.include_router(orden_ref_router, prefix="/api/prestashop/orden_por_reference", tags=["Ordenes Prestashop"])
 app.include_router(pagos_prestashop_router, prefix="/api/prestashop/pagos", tags=["PrestaShop Pagos"])
-app.include_router(proveedores_prestashop_router, prefix="/api/prestashop/proveedores", tags=["PrestaShop Proveedores"])
 app.include_router(prestashop_ordenes_router, prefix="/api/prestashop/ordenes", tags=["PrestaShop Ordenes"])
