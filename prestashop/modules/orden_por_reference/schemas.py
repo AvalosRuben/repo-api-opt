@@ -1,14 +1,13 @@
 from pydantic import BaseModel
 
-
-class OrdenReferencia(BaseModel):
+class Orden(BaseModel):
     id: int | None
     reference: str | None
+    id_customer: int | None
+    current_state: int | None
     total_paid: float | None
     date_add: str | None
-    current_state: str | None
 
-
-class OrdenReferenciaLista(BaseModel):
+class OrdenLista(BaseModel):
     total: int
-    data: list[OrdenReferencia]
+    data: list[Orden]
