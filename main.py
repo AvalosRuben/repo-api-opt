@@ -25,9 +25,9 @@ app = FastAPI(title="API")
 
 app.include_router(productos_router, prefix="/api/odoo/productos", tags=["Productos"])
 app.include_router(categorias_router, prefix="/api/odoo/categoria", tags=["Categoria"])
-app.include_router(stock_router, prefix="/api/stock", tags=["Stock"])
-app.include_router(proveedores_router, prefix="/api/proveedores", tags=["Proveedores"])
-app.include_router(ordenes_router, prefix="/ordenes", tags=["Ordenes"])
+app.include_router(stock_router, prefix="/api/odoo/stock", tags=["Stock"])
+app.include_router(proveedores_router, prefix="/api/odoo/proveedores", tags=["Proveedores"])
+app.include_router(ordenes_router, prefix="/api/odoo/ordenes", tags=["Ordenes"])
 
 # PRESTASHOP ENDPOINTS
 
