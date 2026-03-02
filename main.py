@@ -17,6 +17,7 @@ from prestashop.modules.ordenes.routes import router as prestashop_ordenes_route
 from prestashop.modules.productos_reference.routes import router as productos_ref_router
 from prestashop.modules.ordenes_get.routes import router as ordenes_get_router  # <-- NUEVO
 from prestashop.modules.actualizar_productos.routes import router as actualizar_productos_router
+from prestashop.modules.desactivar_productos.routes import router as desactivar_producto_router
 
 
 app = FastAPI(title="API")
@@ -40,9 +41,6 @@ app.include_router(pagos_prestashop_router, prefix="/api/prestashop/pagos", tags
 app.include_router(prestashop_ordenes_router, prefix="/api/prestashop/ordenes", tags=["PrestaShop Ordenes"])
 
 # OBTENER ORDENES (GET)
-app.include_router(
-    ordenes_get_router,
-    prefix="/api/prestashop/ordenes-get",
-    tags=["PrestaShop Ordenes GET"]
-)
+app.include_router(ordenes_get_router, prefix="/api/prestashop/ordenes-get", tags=["PrestaShop Ordenes GET"])
 app.include_router(actualizar_productos_router, prefix="/api/prestashop/actualizar-productos", tags=["Actualizar Productos"])
+app.include_router(desactivar_producto_router, prefix="/api/prestashop/productos", tags=["PrestaShop Desactivar Productos"])

@@ -17,7 +17,8 @@ if not API_KEY:
 
 
 def prestashop_get(endpoint: str):
-    url = f"{BASE_URL}/{endpoint}?output_format=JSON&display=full"
+    conector = "&" if "?" in endpoint else "?"
+    url = f"{BASE_URL}/{endpoint}{conector}output_format=JSON&display=full"
 
     try:
         response = requests.get(url, auth=(API_KEY, ""))
