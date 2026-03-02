@@ -16,7 +16,8 @@ def desactivar_producto_en_prestashop(reference: str):
         forbidden = [
             "manufacturer_name", "quantity", "id_default_image", 
             "position_in_category", "cache_default_attribute", 
-            "id_default_combination", "associations"
+            "id_default_combination", "associations", "low_stock_threshold",
+            "low_stock_alert"
         ]
         for key in forbidden:
             producto_completo.pop(key, None)
