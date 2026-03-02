@@ -26,3 +26,8 @@ def obtener_por_referencia(reference: str):
 def crear_por_referencia(body: ProductoReferencia):
     return crear_producto_por_referencia(body.reference)
 
+
+@router.post("/{reference}")
+def crear_por_referencia_path(reference: str):
+    return crear_producto_por_referencia(reference)
+
