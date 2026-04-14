@@ -1,7 +1,7 @@
 from prestashop.core.prestashop_client import prestashop_put, prestashop_get
 from lxml import etree
 
-API_KEY = "19KRNWS2GV1UG9MP1FPJMYSVLKYZYAK6"
+API_KEY = "RCRKFD2XMNY9GBCQBHFERWZZKBUEHB1D"
 
 class ProductoActualizable:
 

@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 
 # ODOO IMPORTS
-from modules.productos.routes import router as productos_router
-from modules.categorias.routes import router as categorias_router
-from modules.stock.routes import router as stock_router
-from modules.proveedores.routes import router as proveedores_router
-from modules.ordenes.routes import router as ordenes_router
+from odoo.modules.productos.routes import router as productos_router
+from odoo.modules.categorias.routes import router as categorias_router
+from odoo.modules.stock.routes import router as stock_router
+from odoo.modules.proveedores.routes import router as proveedores_router
+from odoo.modules.ordenes.routes import router as ordenes_router
 
 # PRESTASHOP IMPORTS
 from prestashop.modules.clientes.routes import router as clientes_router

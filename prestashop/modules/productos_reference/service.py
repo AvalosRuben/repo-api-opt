@@ -1,4 +1,4 @@
-from core.odoo import get_odoo_connection, ODOO_DB, ODOO_PASSWORD
+from odoo.core.odoo import get_odoo_connection, ODOO_DB, ODOO_PASSWORD
 from fastapi import HTTPException
 import re
 import unicodedata
@@ -267,11 +267,19 @@ def crear_productos_masivamente():
             creado = crear_producto_por_referencia(reference)
             resultados.append(creado)
         except HTTPException as httpe:
+            print("ERROR:", httpe.status_code, httpe.detail)
+            continue
             # si hay un error específico de un producto podemos continuar
             # (podría guardarse en un log o en una lista de errores)
             continue
-        except Exception:
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            raise
             # ignorar cualquier otra excepción individual
             continue
+
+        print("TOTAL PRODUCTOS ODOO:", len(productos_odoo))
+        print(productos_odoo[:5])
 
     return {"total": len(resultados), "data": resultados}

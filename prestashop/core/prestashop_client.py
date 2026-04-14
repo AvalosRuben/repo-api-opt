@@ -9,7 +9,7 @@ if not base.endswith("/api"):
     base = f"{base}/api"
 BASE_URL = base
 
-API_KEY = os.getenv("PRESTASHOP_API_KEY", "5CBDJD9A6EVGMWVM4SVPPQW6VD3LGHMR")
+API_KEY = os.getenv("PRESTASHOP_API_KEY", "RCRKFD2XMNY9GBCQBHFERWZZKBUEHB1D")
 if not API_KEY:
     # no usamos HTTPException aquí porque esto ocurre durante la carga del
     # módulo y queremos que la aplicación falle rápido.
@@ -30,13 +30,27 @@ def prestashop_get(endpoint: str):
             raise HTTPException(status_code=401, detail="Autenticación fallida")
         
         response.raise_for_status()
-        content_type = response.headers.get("Content-Type","")
 
-        if "application/json" in content_type:
-            return response.json()
-        else:
-            return response.text
-    
+        content_type = response.headers.get("Content-Type", "")
+
+        if "application/json" not in content_type:
+            raise HTTPException(
+                status_code=500,
+                detail="PrestaShop no devolvió JSON válido"
+            )
+
+        data = response.json()
+
+        # 🔥 Normalización inteligente
+        if isinstance(data, list):
+            # envolver lista directa
+            return {"data": data}
+
+        if isinstance(data, dict):
+            return data
+
+        return {"data": []}
+
     except requests.exceptions.ConnectionError:
         raise HTTPException(status_code=503, detail="No se pudo conectar a PrestaShop")
         

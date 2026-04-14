@@ -2,9 +2,9 @@ import xmlrpc.client
 from fastapi import HTTPException
 
 ODOO_URL = "http://localhost:8069"
-ODOO_DB = "modelo-test"
-ODOO_USERNAME = "15233909@modelo.edu.mx"
-ODOO_PASSWORD = "juanadmin"
+ODOO_DB = "TestDB"
+ODOO_USERNAME = "15233905@modelo.edu.mx"
+ODOO_PASSWORD = "0104.4N4rccnO5_"
 
 
 def get_odoo_connection():

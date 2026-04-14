@@ -1,4 +1,4 @@
-from core.odoo import get_odoo_connection, ODOO_DB, ODOO_PASSWORD
+from odoo.core.odoo import get_odoo_connection, ODOO_DB, ODOO_PASSWORD
 from fastapi import HTTPException
 
 def _to_none_if_false(value):

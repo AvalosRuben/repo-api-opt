@@ -1,4 +1,4 @@
-from core.odoo import get_odoo_connection
+from odoo.core.odoo import get_odoo_connection
 from fastapi import HTTPException
 
 def obtener_categorias():
