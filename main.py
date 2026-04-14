@@ -7,6 +7,9 @@ from odoo.modules.stock.routes import router as stock_router
 from odoo.modules.proveedores.routes import router as proveedores_router
 from odoo.modules.ordenes.routes import router as ordenes_router
 
+# WORDPRESS IMPORTS
+from wordpress.modules.productos.routes import router as wordpress_productos_router
+
 # PRESTASHOP IMPORTS
 from prestashop.modules.clientes.routes import router as clientes_router
 from prestashop.modules.productos.routes import router as prestashop_productos_router
@@ -29,6 +32,10 @@ app.include_router(categorias_router, prefix="/api/odoo/categoria", tags=["Categ
 app.include_router(stock_router, prefix="/api/odoo/stock", tags=["Stock"])
 app.include_router(proveedores_router, prefix="/api/odoo/proveedores", tags=["Proveedores"])
 app.include_router(ordenes_router, prefix="/api/odoo/ordenes", tags=["Ordenes"])
+
+# WORDPRESS ENDPOINTS
+
+app.include_router(wordpress_productos_router, prefix="/api/wordpress/productos", tags=["WordPress Productos"])
 
 # PRESTASHOP ENDPOINTS
 
