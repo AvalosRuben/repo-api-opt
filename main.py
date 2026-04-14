@@ -25,29 +25,34 @@ from prestashop.modules.desactivar_productos.routes import router as desactivar_
 
 app = FastAPI(title="API")
 
+# ============================================
 # ODOO ENDPOINTS
+# ============================================
 
-app.include_router(productos_router, prefix="/api/odoo/productos", tags=["Productos"])
-app.include_router(categorias_router, prefix="/api/odoo/categoria", tags=["Categoria"])
-app.include_router(stock_router, prefix="/api/odoo/stock", tags=["Stock"])
-app.include_router(proveedores_router, prefix="/api/odoo/proveedores", tags=["Proveedores"])
-app.include_router(ordenes_router, prefix="/api/odoo/ordenes", tags=["Ordenes"])
+app.include_router(productos_router, prefix="/api/odoo/productos", tags=["ODOO - Productos"])
+app.include_router(categorias_router, prefix="/api/odoo/categoria", tags=["ODOO - Categorías"])
+app.include_router(stock_router, prefix="/api/odoo/stock", tags=["ODOO - Stock"])
+app.include_router(proveedores_router, prefix="/api/odoo/proveedores", tags=["ODOO - Proveedores"])
+app.include_router(ordenes_router, prefix="/api/odoo/ordenes", tags=["ODOO - Órdenes"])
 
-# WORDPRESS ENDPOINTS
-
-app.include_router(wordpress_productos_router, prefix="/api/wordpress/productos", tags=["WordPress Productos"])
-
+# ============================================
 # PRESTASHOP ENDPOINTS
+# ============================================
 
-app.include_router(clientes_router, prefix="/api/prestashop/clientes", tags=["Clientes"])
-app.include_router(prestashop_productos_router, prefix="/api/prestashop/productos", tags=["Productos"])
-app.include_router(productos_ref_router, prefix="/api/prestashop/productos-referencia", tags=["PrestaShop Productos Referencia"])
-app.include_router(proveedores_prestashop_router, prefix="/api/prestashop/proveedores", tags=["PrestaShop Proveedores"])
-app.include_router(orden_ref_router, prefix="/api/prestashop/orden_por_reference", tags=["Ordenes Prestashop"])
-app.include_router(pagos_prestashop_router, prefix="/api/prestashop/pagos", tags=["PrestaShop Pagos"])
-app.include_router(prestashop_ordenes_router, prefix="/api/prestashop/ordenes", tags=["PrestaShop Ordenes"])
+app.include_router(clientes_router, prefix="/api/prestashop/clientes", tags=["PrestaShop - Clientes"])
+app.include_router(prestashop_productos_router, prefix="/api/prestashop/productos", tags=["PrestaShop - Productos"])
+app.include_router(productos_ref_router, prefix="/api/prestashop/productos-referencia", tags=["PrestaShop - Productos Referencia"])
+app.include_router(proveedores_prestashop_router, prefix="/api/prestashop/proveedores", tags=["PrestaShop - Proveedores"])
+app.include_router(orden_ref_router, prefix="/api/prestashop/orden_por_reference", tags=["PrestaShop - Órdenes"])
+app.include_router(pagos_prestashop_router, prefix="/api/prestashop/pagos", tags=["PrestaShop - Pagos"])
+app.include_router(prestashop_ordenes_router, prefix="/api/prestashop/ordenes", tags=["PrestaShop - Órdenes"])
+app.include_router(ordenes_get_router, prefix="/api/prestashop/ordenes-get", tags=["PrestaShop - Órdenes"])
+app.include_router(actualizar_productos_router, prefix="/api/prestashop/actualizar-productos", tags=["PrestaShop - Productos"])
+app.include_router(desactivar_producto_router, prefix="/api/prestashop/productos", tags=["PrestaShop - Productos"])
 
-# OBTENER ORDENES (GET)
-app.include_router(ordenes_get_router, prefix="/api/prestashop/ordenes-get", tags=["PrestaShop Ordenes GET"])
-app.include_router(actualizar_productos_router, prefix="/api/prestashop/actualizar-productos", tags=["Actualizar Productos"])
-app.include_router(desactivar_producto_router, prefix="/api/prestashop/productos", tags=["PrestaShop Desactivar Productos"])
+# ============================================
+# WORDPRESS ENDPOINTS
+# ============================================
+
+app.include_router(wordpress_productos_router, prefix="/api/wordpress/productos", tags=["WordPress - Productos"])
+
