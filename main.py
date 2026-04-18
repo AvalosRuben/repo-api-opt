@@ -9,6 +9,7 @@ from odoo.modules.ordenes.routes import router as ordenes_router
 
 # WORDPRESS IMPORTS
 from wordpress.modules.productos.routes import router as wordpress_productos_router
+from wordpress.modules.ordenes.routes import router as ordenes_wp_router
 
 # PRESTASHOP IMPORTS
 from prestashop.modules.clientes.routes import router as clientes_router
@@ -55,4 +56,5 @@ app.include_router(desactivar_producto_router, prefix="/api/prestashop/productos
 # ============================================
 
 app.include_router(wordpress_productos_router, prefix="/api/wordpress/productos", tags=["WordPress - Productos"])
+app.include_router(ordenes_wp_router, prefix="/api/wordpress/ordenes", tags=["WordPress Órdenes"])
 
