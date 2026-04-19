@@ -126,3 +126,14 @@ def sincronizar_productos_odoo_a_wordpress():
             status_code=500,
             detail=f"Error en la sincronización: {str(e)}"
         )
+
+
+def enviar_ordenes_a_wordpress(ordenes):
+    try:
+        for orden in ordenes:
+            response = wcapi.post("orders", data=orden)
+            if not response.ok:
+                raise HTTPException(status_code=response.status_code, detail=response.text)
+        return {"total": len(ordenes), "sincronizados": True}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

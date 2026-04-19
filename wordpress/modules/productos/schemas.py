@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class ProductoOdoo(BaseModel):
     id: int
@@ -22,3 +22,15 @@ class RespuestaSincronizacion(BaseModel):
     total_sincronizado: int
     total_errores: int
     detalles: list[ProductoSincronizado]
+
+class OrdenWordPress(BaseModel):
+    id: int
+    name: str
+    date_order: Optional[str] = None
+    amount_total: Optional[float] = None
+    state: Optional[str] = None
+    partner_id: Optional[list] = None
+
+class RespuestaOrdenes(BaseModel):
+    total: int
+    data: List[OrdenWordPress]
