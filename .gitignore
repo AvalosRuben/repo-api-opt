@@ -4,3 +4,13 @@ __pycache__/
 venv/
 
 docker-compose.yml
+__pycache__\main.cpython-314.pyc
+__pycache__\main.cpython-314-py3.14.egg-info\PKG-INFO
+__pycache__\main.cpython-314-py3.14.egg-info\S
+OURCES.txt
+__pycache__\main.cpython-314-py3.14.egg-info\
+dependency_links.txt
+__pycache__\main.cpython-314-py3.14.egg-info\
+prestashop\modules\clientes\__pycache__\routes.cpython-314.pyc
+
+prestashop\modules\clientes\__pycache__\service.cpython-314.pyc
