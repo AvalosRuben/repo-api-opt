@@ -46,13 +46,3 @@ def obtener_cliente_por_id(cliente_id: int):
         )
 
     return response.json()
-
-
-def probar_conexion_wordpress():
-    """Hace una petición simple a la API de WooCommerce para diagnóstico."""
-    try:
-        response = wcapi.get("customers", params={"per_page": 1})
-    except Exception as e:
-        return {"ok": False, "error": str(e)}
-
-    return {"ok": response.status_code == 200, "status_code": response.status_code, "body_preview": response.text[:1000]}
