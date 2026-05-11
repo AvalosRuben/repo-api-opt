@@ -12,6 +12,7 @@ from wordpress.modules.productos.routes import router as wordpress_productos_rou
 from wordpress.modules.ordenes.routes import router as ordenes_wp_router
 from wordpress.modules.list_products.routes import router as wordpress_list_products_router
 from wordpress.modules.clientes.routes import router as wordpress_clientes_router
+from wordpress.modules.cupones.routes import router as wordpress_cupones_router
 
 
 # PRESTASHOP IMPORTS
@@ -65,3 +66,4 @@ app.include_router(wordpress_list_products_router, prefix="/api/wordpress/list-p
 
 app.include_router(wordpress_clientes_router, prefix="/api/wordpress/clientes", tags=["WordPress - Clientes"]) #Endpoint Rubén
 app.include_router( wordpress_clientes_router, prefix="/api/wordpress/clientes", tags=["WordPress - Clientes"])
+app.include_router(wordpress_cupones_router, prefix="/api/wordpress/cupones", tags=["WordPress - Cupones"]) #Endpoint Julio
