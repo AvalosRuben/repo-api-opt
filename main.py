@@ -11,6 +11,7 @@ from odoo.modules.ordenes.routes import router as ordenes_router
 from wordpress.modules.productos.routes import router as wordpress_productos_router
 from wordpress.modules.ordenes.routes import router as ordenes_wp_router
 from wordpress.modules.list_products.routes import router as wordpress_list_products_router
+from wordpress.modules.clientes.routes import router as wordpress_clientes_router
 
 # PRESTASHOP IMPORTS
 from prestashop.modules.clientes.routes import router as clientes_router
@@ -60,3 +61,4 @@ app.include_router(wordpress_productos_router, prefix="/api/wordpress/productos"
 app.include_router(ordenes_wp_router, prefix="/api/wordpress/ordenes", tags=["WordPress Órdenes"])
 app.include_router(wordpress_list_products_router, prefix="/api/wordpress/list-products", tags=["WordPress - List Products"])
 
+app.include_router(wordpress_clientes_router, prefix="/api/wordpress/clientes", tags=["WordPress - Clientes"]) #Endpoint Rubén
