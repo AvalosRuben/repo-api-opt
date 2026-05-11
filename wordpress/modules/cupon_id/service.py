@@ -6,7 +6,7 @@ def obtener_cupon_por_id(cupon_id: int):
     response = wcapi.get(f"coupons/{cupon_id}")
 
     print(response.status_code)
-    print(response.text)
+    print("No existe ese cupon" if response.status_code == 404 else response.text)
 
     if response.status_code != 200:
         raise HTTPException(
