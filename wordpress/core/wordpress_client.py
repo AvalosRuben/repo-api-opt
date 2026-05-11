@@ -2,11 +2,11 @@ from woocommerce import API
 
 # Configuración de la conexión
 wcapi = API(
-    url="http://localhost:8080", # Asegúrate de que el puerto sea el correcto (8080)
+    url="http://localhost:8081", # Asegúrate de que el puerto sea el correcto (8080)
     
     # IMPORTANTE COLOCAR SUS PROPIAS CREDENCIALES PARA PODER CONECTARSE AL WORDPRESS
-    consumer_key="ck_b32a330f9c4dcaa3371a2002e90ec4e7f241abeb",
-    consumer_secret="cs_4ba00d33766ca95fa343f5c418739ae6591545bd",
+    consumer_key="ck_5c02e688fac26112bce3f033cbf8129a87b36506",
+    consumer_secret="cs_d00898ad67c2e30eaae3d40efd4eae7118d481e9",
     version="wc/v3",
     timeout=20
 )

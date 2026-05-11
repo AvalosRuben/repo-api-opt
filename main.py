@@ -13,6 +13,7 @@ from wordpress.modules.ordenes.routes import router as ordenes_wp_router
 from wordpress.modules.list_products.routes import router as wordpress_list_products_router
 from wordpress.modules.clientes.routes import router as wordpress_clientes_router
 
+
 # PRESTASHOP IMPORTS
 from prestashop.modules.clientes.routes import router as clientes_router
 from prestashop.modules.productos.routes import router as prestashop_productos_router
@@ -24,6 +25,7 @@ from prestashop.modules.productos_reference.routes import router as productos_re
 from prestashop.modules.ordenes_get.routes import router as ordenes_get_router  # <-- NUEVO
 from prestashop.modules.actualizar_productos.routes import router as actualizar_productos_router
 from prestashop.modules.desactivar_productos.routes import router as desactivar_producto_router
+
 
 
 app = FastAPI(title="API")
@@ -62,3 +64,4 @@ app.include_router(ordenes_wp_router, prefix="/api/wordpress/ordenes", tags=["Wo
 app.include_router(wordpress_list_products_router, prefix="/api/wordpress/list-products", tags=["WordPress - List Products"])
 
 app.include_router(wordpress_clientes_router, prefix="/api/wordpress/clientes", tags=["WordPress - Clientes"]) #Endpoint Rubén
+app.include_router( wordpress_clientes_router, prefix="/api/wordpress/clientes", tags=["WordPress - Clientes"])
