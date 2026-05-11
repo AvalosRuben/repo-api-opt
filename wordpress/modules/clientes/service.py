@@ -26,3 +26,33 @@ def crear_cliente(data):
         )
 
     return response.json()
+
+
+def obtener_cliente_por_id(cliente_id: int):
+    try:
+        response = wcapi.get(f"customers/{cliente_id}")
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Error connecting to WordPress: {e}")
+
+    # Debug prints (visible in uvicorn terminal)
+    print("[WP] GET customers/{id} ->", cliente_id)
+    print("[WP] status:", response.status_code)
+    print("[WP] text:", response.text)
+
+    if response.status_code != 200:
+        raise HTTPException(
+            status_code=response.status_code,
+            detail=response.text
+        )
+
+    return response.json()
+
+
+def probar_conexion_wordpress():
+    """Hace una petición simple a la API de WooCommerce para diagnóstico."""
+    try:
+        response = wcapi.get("customers", params={"per_page": 1})
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+    return {"ok": response.status_code == 200, "status_code": response.status_code, "body_preview": response.text[:1000]}
