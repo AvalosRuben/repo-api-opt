@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from .schemas import ClienteCreate
-from .service import obtener_clientes, crear_cliente
+from .service import obtener_clientes, crear_cliente, obtener_cliente_por_id, probar_conexion_wordpress
 
 router = APIRouter()
 
@@ -14,3 +14,13 @@ def get_clientes():
 @router.post("/")
 def post_cliente(cliente: ClienteCreate):
     return crear_cliente(cliente.model_dump())
+
+
+@router.get("/{cliente_id}")
+def get_cliente(cliente_id: int):
+    return obtener_cliente_por_id(cliente_id)
+
+
+@router.get("/test-connection")
+def test_connection():
+    return probar_conexion_wordpress()

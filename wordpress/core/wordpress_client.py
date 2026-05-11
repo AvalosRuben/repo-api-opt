@@ -1,12 +1,16 @@
+import os
 from woocommerce import API
 
-# Configuración de la conexión
+# Configuración de la conexión: lee valores desde variables de entorno
+# Variables disponibles: WP_URL, WP_CONSUMER_KEY, WP_CONSUMER_SECRET
+WC_URL = os.getenv("WP_URL", "http://localhost:8080")
+WC_CONSUMER_KEY = os.getenv("WP_CONSUMER_KEY", "ck_9ed5ab647702547579f12c8bbbb49dd7b0d17064")
+WC_CONSUMER_SECRET = os.getenv("WP_CONSUMER_SECRET", "cs_21b396f0cd15e6b86207a65092aa5db983c42626")
+
 wcapi = API(
-    url="http://localhost:8081", # Asegúrate de que el puerto sea el correcto (8080)
-    
-    # IMPORTANTE COLOCAR SUS PROPIAS CREDENCIALES PARA PODER CONECTARSE AL WORDPRESS
-    consumer_key="ck_5c02e688fac26112bce3f033cbf8129a87b36506",
-    consumer_secret="cs_d00898ad67c2e30eaae3d40efd4eae7118d481e9",
+    url=WC_URL,
+    consumer_key=WC_CONSUMER_KEY,
+    consumer_secret=WC_CONSUMER_SECRET,
     version="wc/v3",
     timeout=20
 )
