@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # ODOO IMPORTS
 from odoo.modules.productos.routes import router as productos_router
@@ -30,6 +31,17 @@ from prestashop.modules.desactivar_productos.routes import router as desactivar_
 
 
 app = FastAPI(title="API")
+origins = [
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ============================================
 # ODOO ENDPOINTS
