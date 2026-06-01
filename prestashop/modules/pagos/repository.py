@@ -10,6 +10,7 @@ def obtener_pagos():
         for pago in pagos:
             resultado.append({
                 "id": pago.get("id"),
+                "order_reference": pago.get("order_reference"),
                 "amount": pago.get("amount"),
                 "payment_method": pago.get("payment_method"),
                 "date_add": pago.get("date_add")
